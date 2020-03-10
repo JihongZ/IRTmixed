@@ -24,7 +24,7 @@ IRTmixed <- function(x, seed = 1234, itemtype = "2PL") {
     irt2pl.model <- PLmixed(Response ~ 0 + ItemID + (0 + ability | PersonID),
                             data = dataset.long, load.var = c("ItemID"), family = binomial,
                             factor = list(c("ability")), lambda = list(irt2pl.lam),
-                            nAGQ=0, method = 'L-BFGS-B',
+                            nAGQ=1, method = 'L-BFGS-B',
                             lower = 0,
                             upper = 2
     )
