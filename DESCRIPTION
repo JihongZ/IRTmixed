@@ -1,0 +1,17 @@
+Package: IRTmixed
+Type: Package
+Title: Fit IRT model in general linuear mixed model
+Version: 0.1.0
+Author: Jihong Zhang
+Maintainer: Jihong Zhang <jihong-zhang@uiowa.edu>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  lme4,
+  mirt,
+  PLmixed,
+  tidyr
+RoxygenNote: 6.1.1
