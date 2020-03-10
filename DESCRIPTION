@@ -10,8 +10,9 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports:
+  tidyr,
+  dplyr,
   lme4,
   mirt,
-  PLmixed,
-  tidyr
+  PLmixed
 RoxygenNote: 6.1.1
