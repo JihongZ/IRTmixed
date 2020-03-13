@@ -5,8 +5,7 @@
 #' @export
 #'
 
-IRTmixed <- function(x, itemtype = "2PL", a.fix = 1, seed = 1234) {
-  set.seed(seed)
+IRTmixed <- function(x, itemtype = "2PL", a.fix = 1) {
 
   dataset <- as.data.frame(x)
   N_items <- ncol(x)
