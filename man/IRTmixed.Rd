@@ -4,7 +4,7 @@
 \alias{IRTmixed}
 \title{main function to fit the IRT model using mixed model}
 \usage{
-IRTmixed(x, itemtype = "2PL", a.fix = 1, seed = 1234)
+IRTmixed(x, itemtype = "2PL", a.fix = 1)
 }
 \arguments{
 \item{x}{a data.frame object. Each row is observarion, and each column is one item.}
