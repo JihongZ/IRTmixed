@@ -4,7 +4,7 @@
 \alias{plot.irtmixed}
 \title{main function to fit the IRT model using mixed model}
 \usage{
-\method{plot}{irtmixed}(x, type = "irf", ...)
+plot.irtmixed(x, type = "irf", ...)
 }
 \arguments{
 \item{x}{a irtmixed object. Each row is observarion, and each column is one item.}

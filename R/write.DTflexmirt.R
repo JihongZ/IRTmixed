@@ -1,4 +1,4 @@
-#' @title Reshape the data and save sas the format for flexmirt
+#' @title Reshape the data and save as the format for flexmirt
 #' @param x a data.frame object. Each row is observarion, and each column is one item.
 #' @param file the path dataset save
 #' @import PLmixed

@@ -2,7 +2,7 @@
 % Please edit documentation in R/write.DTflexmirt.R
 \name{write.DTflexmirt}
 \alias{write.DTflexmirt}
-\title{Reshape the data and save sas the format for flexmirt}
+\title{Reshape the data and save as the format for flexmirt}
 \usage{
 write.DTflexmirt(x, file)
 }
@@ -12,5 +12,5 @@ write.DTflexmirt(x, file)
 \item{file}{the path dataset save}
 }
 \description{
-Reshape the data and save sas the format for flexmirt
+Reshape the data and save as the format for flexmirt
 }
