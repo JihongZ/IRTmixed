@@ -35,7 +35,6 @@ makeArgonJobFile = function(argon_Rscript_path,
 
     module load R/3.5.1
 
-    cd ~/IRTmixed_sim/job_files/
   "
 
 
