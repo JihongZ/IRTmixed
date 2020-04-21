@@ -6,7 +6,7 @@
 args = commandArgs(trailingOnly = TRUE)
 
 if (!require(IRTmixed)) {
-  devtools::install_github("jihongz/IRTmixed", force = TRUE)
+  devtools::install_github("jihongz/IRTmixed", force = TRUE, dependencies = FALSE)
 }else{
   library(IRTmixed)
 }

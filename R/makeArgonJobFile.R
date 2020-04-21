@@ -34,11 +34,13 @@ makeArgonJobFile = function(argon_Rscript_path,
     #####End Resource Selection Directives#####
 
     module load R/3.5.1
+    module load gcc
 
   "
 
 
-  jobtext = c(jobtext, paste("Rscript", argon_Rscript_path, n_obs, n_reps, seed, "$SGE_TASK_ID"))
+  jobtext = c(jobtext,
+              paste("Rscript", argon_Rscript_path, n_obs, n_reps, seed, "$SGE_TASK_ID"))
 
   return(jobtext)
 }
