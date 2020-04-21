@@ -22,3 +22,24 @@ plot(mmod2, "tif")
 mod1 <- mirt(dt, 1)
 coef(mod1)
 
+allfiles = NULL
+for (obs in 500) {
+  for (rep in 1:31) {
+    makeFlexmirtJobFile(flexmirt_Rscript_path = "~/IRTmixed_sim/Flexmirt_files/Script/",
+                        n_obs = obs,
+                        n_reps = rep)
+    filename = paste0("glmm_15item_N",obs,"_rep",rep,".flexmirt")
+    windows.path = 'C:\\IRTmixed_sim\\Flexmirt_files\\Script\\'
+    allfiles = paste(allfiles, paste0(windows.path, filename), sep = "\n")
+  }
+}
+cat(allfiles)
+# save flexmirt batch file
+write.table(allfiles,
+  file = paste0("~/IRTmixed_sim/Flexmirt_files/Script/", "batch.csv"),
+  quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+
+makeFlexmirtJobFile(flexmirt_Rscript_path = "~/IRTmixed_sim/Flexmirt_files/",
+                    n_obs = n_obs,
+                    n_reps = repnumber)
