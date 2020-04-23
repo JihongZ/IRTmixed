@@ -12,6 +12,7 @@ makeFlexmirtJobFile = function(flexmirt_Rscript_path,
   Mode = Calibration;
   savePRM = Yes;
   GOF=Extended;
+  NumDec = 3;
   //SaveSCO =YES;
   //Score=MAP;
 <Groups>

@@ -22,6 +22,10 @@ repnumber = as.numeric(args[2])
 initseed = as.numeric(args[3])
 repseed = initseed+repnumber
 
+# n_obs = 500
+# repnumber = 100
+# initseed = 1234
+
 ########################### 1. Single trial
 # Generate data for 15-item scale, 3 different sample sizes
 ###########################
@@ -37,12 +41,14 @@ sim.parm.condition1 <- function(seed) {
   return(cbind(a, b, d))
 }
 
-true.parm <- sim.parm.condition1(seed = repseed)
+true.parm <- sim.parm.condition1(seed = 1234)
 
 ########################### 1. Data Simulation
 # Condition 1/2/3
 ###########################
+set.seed(repseed)
 sim.data <- mirt::simdata(a = true.parm[,1], d = true.parm[,3], N = n_obs, itemtype = "2PL")
+
 
 ########################### 2. Save Data file for flexmirt
 # Save data file to Flexmirt_files folder
