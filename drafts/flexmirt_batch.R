@@ -1,6 +1,7 @@
+library(IRTmixed)
 allfiles = NULL
-for (obs in 500) {
-  for (rep in 1:31) {
+for (obs in c(5000)) {
+  for (rep in 1:100) {
     # save all flexmirt syntax to the Script folder
     makeFlexmirtJobFile(flexmirt_Rscript_path = "~/IRTmixed_sim/Flexmirt_files/Script/",
                         n_obs = obs,
@@ -11,6 +12,7 @@ for (obs in 500) {
     allfiles = paste(allfiles, paste0(windows.path, filename), sep = "\n")
   }
 }
+
 # save flexmirt batch file
 write.table(allfiles,
             file = paste0("~/IRTmixed_sim/Flexmirt_files/Script/", "batch.csv"),
