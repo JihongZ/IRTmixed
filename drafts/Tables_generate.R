@@ -15,12 +15,12 @@ Bias <- function(est, true) {
 }
 
 
-########################### 0. Import Data
+########################### 0. Read in Data
 # Import PLmixed estimates, Flexmirt estimates, True Parameters
 ###########################
 library(dplyr)
-path1 <- "~/IRTmixed_sim/PLmixed_files/Data/True_Para_N500_rep1.csv"
-path2 <- "~/IRTmixed_sim/PLmixed_files/Results/"
+path1 <- "~/Downloads/IRTmixed_sim/PLmixed_files/Data/True_Para_N500_rep1.csv"
+path2 <- "~/Downloads/IRTmixed_sim/PLmixed_files/Results/"
 true_param <- read.csv(path1)
 
 list.files(path2)
