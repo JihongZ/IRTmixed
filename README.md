@@ -1,6 +1,11 @@
 # IRTmixed
 A R package to fit IRT model (1PL, 2PL, GRM, PRM) in linear mixed model framework
 
+# Installation
+```
+devtools::install_github("JihongZ/IRTmixed")
+```
+
 # Usage
 ```
 dt <- read.csv(file = paste0("~/irtmixed_sim/plmixed_files/data_15item_n",n_obs,"_rep",repnumber,".csv"))
