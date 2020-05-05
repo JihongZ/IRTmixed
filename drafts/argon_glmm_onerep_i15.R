@@ -68,9 +68,9 @@ write.csv(sim.data, row.names = FALSE,
 # Using IRT mixed functions to fit 2PL model to those files
 # save the estimated parameters
 ###########################
-dt <- read.csv(file = paste0("~/IRTmixed_sim/PLmixed_files/data_15item_N",n_obs,"_rep",repnumber,".csv"))
+dt <- read.csv(file = paste0("~/irtmixed_sim/plmixed_files/data_15item_n",n_obs,"_rep",repnumber,".csv"))
 
-mmod1 <- IRTmixed::IRTmixed(x = dt, itemtype = "2PL", a.fix = true.parm[1,1])
+mmod1 <- irtmixed::irtmixed(x = dt, itemtype = "2pl", a.fix = true.parm[1,1])
 
 mmod1.param <- summary(mmod1)
 
