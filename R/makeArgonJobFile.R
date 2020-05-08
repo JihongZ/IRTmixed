@@ -11,9 +11,10 @@ makeArgonJobFile = function(argon_Rscript_path,
 
     #####Set Scheduler Configuration Directives#####
     #Name the job:
-    #$ -N cfaReps
+    #$ -N irtmixedReps
 
     #Redirect standard output to null for high-throughput job:
+    #$ -j y
 
     #Send e-mail at beginning/end/suspension of job
     #$ -m e
