@@ -6,7 +6,7 @@
 args = commandArgs(trailingOnly = TRUE)
 
 if (!require(IRTmixed)) {
-  devtools::install_github("jihongz/IRTmixed", force = TRUE, dependencies = FALSE)
+  devtools::install_github("jihongz/IRTmixed", force = TRUE)
 }else{
   library(IRTmixed)
 }
@@ -20,12 +20,14 @@ library(mirt)
 n_obs = as.numeric(args[1])
 repnumber = as.numeric(args[2])
 initseed = as.numeric(args[3])
-repseed = initseed+repnumber
+repseed = as.numeric(args[4])
+repseed=initseed+repseed+repnumber
+
 
 # n_obs = 500
 # repnumber = 100
-# initseed = 1234
-
+# initseed = 100
+# repseed = 120
 ########################### 1. Single trial
 # Generate data for 15-item scale, 3 different sample sizes
 ###########################
@@ -47,30 +49,30 @@ true.parm <- sim.parm.condition1(seed = 1234)
 # Condition 1/2/3
 ###########################
 set.seed(repseed)
-sim.data <- mirt::simdata(a = true.parm[,1], d = true.parm[,3], N = n_obs, itemtype = "2PL")
-
+thetas <- matrix(rnorm(mean = 0, sd = 1, n = n_obs), ncol = 1)
+sim.data <- mirt::simdata(a = true.parm[,1], d = true.parm[,3], N = n_obs, itemtype = "2PL", Theta = thetas)
 
 ########################### 2. Save Data file for flexmirt
 # Save data file to Flexmirt_files folder
 ###########################
-IRTmixed::write.DTflexmirt(sim.data, paste0("~/IRTmixed_sim/Flexmirt_files/data_15item_N",n_obs,"_rep",repnumber,".dat" ))
+IRTmixed::write.DTflexmirt(sim.data, paste0("~/IRTmixed_sim/Flexmirt_files/Data/data_15item_N",n_obs,"_rep",repnumber,".dat" ))
 
 ########################### 3. Save Data files for PLmixed
 # Save data files to PLmixed_files folder
 ###########################
 write.csv(true.parm, row.names = FALSE,
-          file = paste0("~/IRTmixed_sim/PLmixed_files/True_Para","_N", n_obs, "_rep", repnumber, ".csv"))
+          file = paste0("~/IRTmixed_sim/PLmixed_files/Data/True_Para","_N", n_obs, "_rep", repnumber, ".csv"))
 write.csv(sim.data, row.names = FALSE,
-          file = paste0("~/IRTmixed_sim/PLmixed_files/data_15item_N",n_obs,"_rep",repnumber,".csv"))
+          file = paste0("~/IRTmixed_sim/PLmixed_files/Data/data_15item_N",n_obs,"_rep",repnumber,".csv"))
 
 ########################### 4. Run GLMM for PLmixed datasets
 # Read in the saved data
 # Using IRT mixed functions to fit 2PL model to those files
 # save the estimated parameters
 ###########################
-dt <- read.csv(file = paste0("~/irtmixed_sim/plmixed_files/data_15item_n",n_obs,"_rep",repnumber,".csv"))
+dt <- read.csv(file = paste0("~/IRTmixed_sim/PLmixed_files/Data/data_15item_N",n_obs,"_rep",repnumber,".csv"))
 
-mmod1 <- irtmixed::irtmixed(x = dt, itemtype = "2pl", a.fix = true.parm[1,1])
+mmod1 <- IRTmixed::IRTmixed(x = dt, itemtype = "2PL", a.fix = true.parm[1,1])
 
 mmod1.param <- summary(mmod1)
 
